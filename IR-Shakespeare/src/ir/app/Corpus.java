@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Corpus {
 	
 	private String text;
-	List<String> works;
+	private List<String> works;
 	
 
 	public Corpus(String sourcePath, String delimiter){
