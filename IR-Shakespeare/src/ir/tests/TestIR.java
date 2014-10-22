@@ -25,7 +25,7 @@ public class TestIR {
 	@Before
 	public void setUp() throws Exception{
 		//Corpus einlesen, in Werke einteilen
-		corpus = new Corpus("shakespeare.txt");
+		corpus = new Corpus("shakespeare.txt", "1[56][0-9]{2}\n");
 		System.out.println("### NEW TEST ###");
 	}
 	
@@ -35,7 +35,7 @@ public class TestIR {
 	@Test
 	public void testCorpus() {
 		//Corpus ansprechen, auf Existenz testen, mehr als ein Werk?
-		assertTrue("Corpus > 1 Werk", corpus.getWorks() > 1);
+		assertTrue("Corpus > 1 Werk", corpus.getWorks().size() > 1);
 	}
 	
 	@Test
