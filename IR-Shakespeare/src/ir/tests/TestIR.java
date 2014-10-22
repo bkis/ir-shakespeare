@@ -2,7 +2,7 @@ package ir.tests;
 
 
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import ir.app.Corpus;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -26,6 +26,7 @@ public class TestIR {
 	public void setUp() throws Exception{
 		//Corpus einlesen, in Werke einteilen
 		corpus = new Corpus("shakespeare.txt");
+		System.out.println("### NEW TEST ###");
 	}
 	
 	
@@ -39,17 +40,17 @@ public class TestIR {
 	
 	@Test
 	public void testLinearSearch(){
-		assertTrue("", condition);	
+		//assertTrue("", condition);	
 	}
 	
 	@Test
 	public void testMatrixSearch(){
-		assertTrue("", condition);	
+		//assertTrue("", condition);	
 	}
 	
 	@Test
 	public void testIndexSearch(){
-		assertTrue("", condition);	
+		//assertTrue("", condition);	
 	}
 	
 	
