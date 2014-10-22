@@ -51,11 +51,13 @@ public class TestIR {
 		
 		String query = "Brutus";
 		Set<Integer> result = linear.search(query);
-		assertTrue("Ergebnis sollte nicht leer sein.", result.size() > 0);	
+		assertTrue("Ergebnis sollte nicht leer sein.", result.size() > 0);
+		System.out.println(result);
 		
 		String query2 = "Brutus Caesar";
 		Set<Integer> result2 = linear.search(query2);
 		assertTrue("Ergebnismenge sollte gewachsen sein.", result2.size() > result.size());	
+		System.out.println(result);
 	}
 	
 	@Test
@@ -66,10 +68,12 @@ public class TestIR {
 		String query = "Brutus";
 		Set<Integer> result = matrix.search(query);
 		assertTrue("Ergebnis sollte nicht leer sein.", result.size() > 0);	
+		System.out.println(result);
 		
 		String query2 = "Brutus Caesar";
 		Set<Integer> result2 = matrix.search(query2);
 		assertTrue("Ergebnismenge sollte gewachsen sein.", result2.size() > result.size());	
+		System.out.println(result);
 	}
 	
 	@Test
@@ -80,10 +84,12 @@ public class TestIR {
 		String query = "Brutus";
 		Set<Integer> result = index.search(query);
 		assertTrue("Ergebnis sollte nicht leer sein.", result.size() > 0);	
+		System.out.println(result);
 		
 		String query2 = "Brutus Caesar";
 		Set<Integer> result2 = index.search(query2);
 		assertTrue("Ergebnismenge sollte gewachsen sein.", result2.size() > result.size());	
+		System.out.println(result);
 	}
 	
 	
