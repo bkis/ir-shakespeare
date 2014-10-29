@@ -20,7 +20,7 @@ public class MatrixSearch extends ASearch{
 		Set<String> queries = createQuerySet(query);
 		Set<Integer> result = new HashSet<Integer>();
 		
-		System.out.println("\n[INFO] MatrixSearch query: " + query);
+		System.out.println("\n[INFO] MatrixSearch query: " + queries);
 		benchmarkStart();
 		
 		for (String q : queries)
