@@ -1,6 +1,9 @@
-package ir.app;
+package bk.ir.search.matrix;
 
 import java.util.Set;
+
+import bk.ir.ASearch;
+import bk.ir.Corpus;
 
 public class MatrixSearch extends ASearch{
 

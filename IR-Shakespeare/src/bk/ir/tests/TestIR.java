@@ -1,11 +1,7 @@
-package ir.tests;
+package bk.ir.tests;
 
 
 import static org.junit.Assert.assertTrue;
-import ir.app.Corpus;
-import ir.app.IndexSearch;
-import ir.app.LinearSearch;
-import ir.app.MatrixSearch;
 
 import java.util.Set;
 
@@ -14,6 +10,11 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import bk.ir.Corpus;
+import bk.ir.search.index.IndexSearch;
+import bk.ir.search.linear.LinearSearch;
+import bk.ir.search.matrix.MatrixSearch;
 
 
 public class TestIR {

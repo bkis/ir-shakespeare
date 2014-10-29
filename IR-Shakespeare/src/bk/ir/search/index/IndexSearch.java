@@ -1,6 +1,9 @@
-package ir.app;
+package bk.ir.search.index;
 
 import java.util.Set;
+
+import bk.ir.ASearch;
+import bk.ir.Corpus;
 
 public class IndexSearch extends ASearch{
 

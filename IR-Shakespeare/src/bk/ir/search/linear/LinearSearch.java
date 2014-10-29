@@ -1,8 +1,11 @@
-package ir.app;
+package bk.ir.search.linear;
 
 import java.util.HashSet;
 import java.util.Set;
 import java.util.StringTokenizer;
+
+import bk.ir.ASearch;
+import bk.ir.Corpus;
 
 public class LinearSearch extends ASearch{
 	

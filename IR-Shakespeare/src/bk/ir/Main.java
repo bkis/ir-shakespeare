@@ -1,4 +1,4 @@
-package ir.app;
+package bk.ir;
 
 public class Main {
 
