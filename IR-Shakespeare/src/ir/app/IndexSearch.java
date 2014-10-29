@@ -2,10 +2,10 @@ package ir.app;
 
 import java.util.Set;
 
-public class IndexSearch  implements ISearch{
+public class IndexSearch extends ASearch{
 
 	public IndexSearch(Corpus corpus) {
-		// TODO Auto-generated constructor stub
+		super(corpus);
 	}
 
 	@Override

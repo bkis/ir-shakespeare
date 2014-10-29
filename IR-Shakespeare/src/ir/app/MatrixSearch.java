@@ -2,10 +2,10 @@ package ir.app;
 
 import java.util.Set;
 
-public class MatrixSearch  implements ISearch{
+public class MatrixSearch extends ASearch{
 
 	public MatrixSearch(Corpus corpus) {
-		// TODO Auto-generated constructor stub
+		super(corpus);
 	}
 
 	@Override
