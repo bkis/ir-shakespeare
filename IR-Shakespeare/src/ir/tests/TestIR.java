@@ -31,7 +31,7 @@ public class TestIR {
 	public void setUp() throws Exception{
 		//Corpus einlesen, in Werke einteilen
 		corpus = new Corpus("shakespeare.txt", "1[56][0-9]{2}\n");
-		System.out.println("\n\n### NEW TEST ###\n");
+		System.out.println("\n### NEW TEST ###");
 	}
 	
 	
