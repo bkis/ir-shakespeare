@@ -30,7 +30,7 @@ public class TermDocumentMatrix {
 		
 		//create matrix
 		System.out.print("[INFO] Creating term-document-matrix...");
-		long bmarkStart = System.nanoTime()/1000000;
+		long bmarkStart = System.nanoTime();
 		for (Set<String> termSet : terms){
 			for (String token : termSet){
 				token = token.toLowerCase();
@@ -39,7 +39,7 @@ public class TermDocumentMatrix {
 				matrix.get(token).add(terms.indexOf(termSet));
 			}
 		}
-		System.out.println(" OK (mapped " + matrix.size() + " terms in " + (System.nanoTime()/1000000-bmarkStart) + " ms)");
+		System.out.println(" OK (mapped " + matrix.size() + " terms in " + ((double)(((double)System.nanoTime() - (double)bmarkStart)/1000000)) + " ms)");
 	}
 	
 	public Set<Integer> searchMatrix(String query){

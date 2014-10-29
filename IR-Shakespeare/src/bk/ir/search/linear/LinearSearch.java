@@ -21,7 +21,7 @@ public class LinearSearch extends ASearch{
 		Set<String> queries = createQuerySet(query);
 		List<String> tokens;
 		
-		System.out.println("[INFO] LinearSearch query: " + query);
+		System.out.println("\n[INFO] LinearSearch query: " + query);
 		benchmarkStart();
 		
 		for (String text : corpus.getWorks()){
