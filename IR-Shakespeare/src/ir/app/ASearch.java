@@ -6,6 +6,7 @@ import java.util.Set;
 public abstract class ASearch {
 	
 	protected Corpus corpus;
+	private long bmarkStart;
 	
 	public ASearch(Corpus corpus){
 		this.corpus = corpus;
@@ -21,6 +22,17 @@ public abstract class ASearch {
 		
 		return queries;
 	}
+	
+	
+	protected void benchmarkStart(){
+		bmarkStart = System.currentTimeMillis();
+	}
+	
+	
+	protected long benchmarkStop(){
+		return System.currentTimeMillis() - bmarkStart;
+	}
+	
 	
 	public abstract Set<Integer> search(String query);
 	

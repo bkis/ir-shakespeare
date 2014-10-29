@@ -13,6 +13,7 @@ public class LinearSearch extends ASearch{
 
 	@Override
 	public Set<Integer> search(String query) {
+		benchmarkStart();
 		Set<Integer> result = new HashSet<Integer>();
 		Set<String> queries = createQuerySet(query);
 		StringTokenizer tokenizer;
@@ -29,6 +30,7 @@ public class LinearSearch extends ASearch{
 			}
 		}
 		
+		System.out.println("[INFO] Search duration: " + benchmarkStop() + " ms");
 		return result;
 	}
 	
