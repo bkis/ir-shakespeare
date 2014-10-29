@@ -57,7 +57,7 @@ public class TestIR {
 		String query2 = "Brutus Caesar";
 		Set<Integer> result2 = linear.search(query2);
 		assertTrue("Ergebnismenge sollte gewachsen sein.", result2.size() > result.size());	
-		System.out.println(result);
+		System.out.println(result2);
 	}
 	
 	@Test
