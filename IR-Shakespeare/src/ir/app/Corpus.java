@@ -3,6 +3,7 @@ package ir.app;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -26,8 +27,7 @@ public class Corpus {
 		}
 		
 		text = sb.toString();
-		for (String s : text.split(delimiter))
-			works.add(s);
+		works = Arrays.asList(text.split(delimiter));
 	}
 	
 	public List<String> getWorks(){
