@@ -1,11 +1,12 @@
 package bk.ir.search.linear;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
-import java.util.StringTokenizer;
 
 import bk.ir.ASearch;
 import bk.ir.Corpus;
+import bk.ir.util.Tokenizer;
 
 public class LinearSearch extends ASearch{
 	
@@ -16,17 +17,17 @@ public class LinearSearch extends ASearch{
 
 	@Override
 	public Set<Integer> search(String query) {
-		benchmarkStart();
 		Set<Integer> result = new HashSet<Integer>();
 		Set<String> queries = createQuerySet(query);
-		StringTokenizer tokenizer;
+		List<String> tokens;
 		
-		System.out.println("[INFO] LinearSearch query: " + queries);
+		System.out.println("[INFO] LinearSearch query: " + query);
+		benchmarkStart();
 		
 		for (String text : corpus.getWorks()){
-			tokenizer = new StringTokenizer(text);
-			while (tokenizer.hasMoreTokens()){
-				if (queries.contains(tokenizer.nextToken().toLowerCase())){
+			tokens = Tokenizer.tokenize(text, Tokenizer.SPLIT_NON_WORD);
+			for (String token : tokens){
+				if (queries.contains(token.toLowerCase())){
 					result.add(corpus.getWorks().indexOf(text));
 					break;
 				}
@@ -34,6 +35,7 @@ public class LinearSearch extends ASearch{
 		}
 		
 		System.out.println("[INFO] Search duration: " + benchmarkStop() + " ms");
+		System.out.println("[INFO] Search result: " + result);
 		return result;
 	}
 	

@@ -6,7 +6,7 @@ import java.util.Set;
 public abstract class ASearch {
 	
 	protected Corpus corpus;
-	private long bmarkStart;
+	private double bmarkStart;
 	
 	public ASearch(Corpus corpus){
 		this.corpus = corpus;
@@ -24,13 +24,13 @@ public abstract class ASearch {
 	}
 	
 	
-	protected void benchmarkStart(){
-		bmarkStart = System.currentTimeMillis();
+	public void benchmarkStart(){
+		bmarkStart = (float)System.nanoTime()/1000000;
 	}
 	
 	
-	protected long benchmarkStop(){
-		return System.currentTimeMillis() - bmarkStart;
+	public double benchmarkStop(){
+		return (double)System.nanoTime()/1000000 - bmarkStart;
 	}
 	
 	
