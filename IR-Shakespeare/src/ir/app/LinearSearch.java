@@ -17,7 +17,7 @@ public class LinearSearch extends ASearch{
 		Set<String> queries = createQuerySet(query);
 		StringTokenizer tokenizer;
 		
-		System.out.println("[INFO] Query: " + queries);
+		System.out.println("[INFO] LinearSearch query: " + queries);
 		
 		for (String text : corpus.getWorks()){
 			tokenizer = new StringTokenizer(text);
