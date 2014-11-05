@@ -6,7 +6,7 @@ import java.util.Set;
 
 import bk.ir.ASearch;
 import bk.ir.Corpus;
-import bk.ir.util.Tokenizer;
+import bk.ir.util.Preprocessor;
 
 public class LinearSearch extends ASearch{
 	
@@ -25,7 +25,7 @@ public class LinearSearch extends ASearch{
 		benchmarkStart();
 		
 		for (String text : corpus.getWorks()){
-			tokens = Tokenizer.tokenize(text, Tokenizer.SPLIT_NON_WORD);
+			tokens = Preprocessor.tokenize(text, Preprocessor.SPLIT_NON_WORD);
 			for (String token : tokens){
 				if (queries.contains(token.toLowerCase())){
 					result.add(corpus.getWorks().indexOf(text));

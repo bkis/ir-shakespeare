@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Set;
 
 import bk.ir.Corpus;
-import bk.ir.util.Tokenizer;
+import bk.ir.util.Preprocessor;
 
 
 
@@ -25,7 +25,7 @@ public class TermDocumentMatrix {
 		//generate terms set
 		System.out.print("[INFO] Generating terms set...");
 		for (String work : works)
-			terms.add(new HashSet<String>(Tokenizer.tokenize(work, Tokenizer.SPLIT_NON_WORD)));
+			terms.add(new HashSet<String>(Preprocessor.tokenize(work, Preprocessor.SPLIT_NON_WORD)));
 		System.out.println(" OK");
 		
 		//create matrix
