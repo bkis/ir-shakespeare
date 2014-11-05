@@ -5,11 +5,11 @@ import java.util.List;
 
 public class Preprocessor {
 	
-	public static final String SPLIT_NON_WORD = "\\P{L}+";
+	public static final String SPLIT_NON_WORD = "[\\P{L}]+";
 
 	
 	public static List<String> tokenize(String input, String pattern){
-		return Arrays.asList(input.toLowerCase().split(pattern.toLowerCase()));
+		return Arrays.asList(input.toLowerCase().split(pattern));
 	}
 
 }
