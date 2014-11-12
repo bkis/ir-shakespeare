@@ -25,13 +25,13 @@ public class Index {
 		indexMap = new HashMap<String, SortedSet<Integer>>();
 		
 		//generate terms set
-		System.out.print("[INFO] Generating terms set...");
+		System.out.print("[INDEX]\t\tGenerating terms set...");
 		for (String work : works)
 			terms.add(new HashSet<String>(Preprocessor.tokenize(work, Preprocessor.SPLIT_NON_WORD)));
 		System.out.println(" OK");
 		
 		//create matrix
-		System.out.print("[INFO] Creating index...");
+		System.out.print("[INDEX]\t\tCreating index...");
 		long bmarkStart = System.nanoTime();
 		for (Set<String> termSet : terms){
 			for (String token : termSet){
@@ -41,7 +41,7 @@ public class Index {
 				indexMap.get(token).add(terms.indexOf(termSet));
 			}
 		}
-		System.out.println(" OK (mapped " + indexMap.size() + " terms in " + ((double)(((double)System.nanoTime() - (double)bmarkStart)/1000000)) + " ms)\n");
+		System.out.println(" mapped " + indexMap.size() + " terms.\n[DURATION]\t" + ((double)(((double)System.nanoTime() - (double)bmarkStart)/1000000)) + " ms\n");
 	}
 	
 	public SortedSet<Integer> searchIndex(String query){
