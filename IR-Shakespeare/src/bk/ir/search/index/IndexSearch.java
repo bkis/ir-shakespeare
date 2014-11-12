@@ -1,7 +1,9 @@
 package bk.ir.search.index;
 
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
+import java.util.SortedSet;
 
 import bk.ir.ASearch;
 import bk.ir.Corpus;
@@ -19,13 +21,18 @@ public class IndexSearch extends ASearch{
 	public Set<Integer> search(String query) {
 		benchmarkStart();
 		Set<String> queries = createQuerySet(query);
-		Set<Integer> result = new HashSet<Integer>();
+		List<SortedSet<Integer>> allPostings = new ArrayList<SortedSet<Integer>>();
 		
 		for (String q : queries){
-			result.addAll(index.searchIndex(q));
+			allPostings.add(index.searchIndex(q));
 		}
 		
-		System.out.println("[ " + query + " ] " + result + " [ " + benchmarkStop() + " ms ]");
+		SortedSet<Integer> result = allPostings.get(0);
+		for (SortedSet<Integer> set : allPostings){
+			result = Intersection.of(result, set);
+		}
+
+		System.out.println("[QUERY]\t\t[" + query + "]\n[RESULT]\t" + result + "\n[DURATION]\t[" + benchmarkStop() + " ms]\n");
 		
 		return result;
 	}

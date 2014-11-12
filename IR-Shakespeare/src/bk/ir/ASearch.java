@@ -1,7 +1,8 @@
 package bk.ir;
 
-import java.util.HashSet;
 import java.util.Set;
+
+import bk.ir.util.Preprocessor;
 
 public abstract class ASearch {
 	
@@ -14,13 +15,7 @@ public abstract class ASearch {
 	
 	
 	protected Set<String> createQuerySet(String query){
-		Set<String> queries = new HashSet<String>();
-		String[] q = query.split(" ");
-		
-		for (String s : q)
-			queries.add(s.toLowerCase());
-		
-		return queries;
+		return Preprocessor.tokenize(query, Preprocessor.SPLIT_NON_WORD);
 	}
 	
 	

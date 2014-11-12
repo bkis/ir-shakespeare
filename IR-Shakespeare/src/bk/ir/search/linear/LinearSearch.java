@@ -1,7 +1,6 @@
 package bk.ir.search.linear;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import bk.ir.ASearch;
@@ -19,7 +18,7 @@ public class LinearSearch extends ASearch{
 	public Set<Integer> search(String query) {
 		Set<Integer> result = new HashSet<Integer>();
 		Set<String> queries = createQuerySet(query);
-		List<String> tokens;
+		Set<String> tokens;
 		
 		System.out.println("\n[INFO] LinearSearch query: " + queries);
 		benchmarkStart();

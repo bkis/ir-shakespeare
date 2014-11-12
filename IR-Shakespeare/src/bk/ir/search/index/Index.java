@@ -6,6 +6,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 import bk.ir.Corpus;
 import bk.ir.util.Preprocessor;
@@ -14,13 +16,13 @@ import bk.ir.util.Preprocessor;
 
 public class Index {
 	
-	private Map<String, Set<Integer>> indexMap;
+	private Map<String, SortedSet<Integer>> indexMap;
 	
 	
 	public Index(Corpus corpus){
 		List<String> works = corpus.getWorks();
 		List<Set<String>> terms = new ArrayList<Set<String>>();
-		indexMap = new HashMap<String, Set<Integer>>();
+		indexMap = new HashMap<String, SortedSet<Integer>>();
 		
 		//generate terms set
 		System.out.print("[INFO] Generating terms set...");
@@ -35,16 +37,16 @@ public class Index {
 			for (String token : termSet){
 				token = token.toLowerCase();
 				if (!indexMap.containsKey(token))
-					indexMap.put(token, new HashSet<Integer>());
+					indexMap.put(token, new TreeSet<Integer>());
 				indexMap.get(token).add(terms.indexOf(termSet));
 			}
 		}
-		System.out.println(" OK (mapped " + indexMap.size() + " terms in " + ((double)(((double)System.nanoTime() - (double)bmarkStart)/1000000)) + " ms)");
+		System.out.println(" OK (mapped " + indexMap.size() + " terms in " + ((double)(((double)System.nanoTime() - (double)bmarkStart)/1000000)) + " ms)\n");
 	}
 	
-	public Set<Integer> searchIndex(String query){
-		Set<Integer> result = indexMap.get(query.toLowerCase());
-		return (result != null ? result : new HashSet<Integer>());
+	public SortedSet<Integer> searchIndex(String query){
+		SortedSet<Integer> result = indexMap.get(query.toLowerCase());
+		return (result != null ? result : new TreeSet<Integer>());
 	}
 
 }
