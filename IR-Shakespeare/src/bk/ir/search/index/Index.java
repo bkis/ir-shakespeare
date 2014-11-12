@@ -1,4 +1,4 @@
-package bk.ir.search.matrix;
+package bk.ir.search.index;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,15 +12,15 @@ import bk.ir.util.Preprocessor;
 
 
 
-public class TermDocumentMatrix {
+public class Index {
 	
-	private Map<String, Set<Integer>> matrix;
+	private Map<String, Set<Integer>> indexMap;
 	
 	
-	public TermDocumentMatrix(Corpus corpus){
+	public Index(Corpus corpus){
 		List<String> works = corpus.getWorks();
 		List<Set<String>> terms = new ArrayList<Set<String>>();
-		matrix = new HashMap<String, Set<Integer>>();
+		indexMap = new HashMap<String, Set<Integer>>();
 		
 		//generate terms set
 		System.out.print("[INFO] Generating terms set...");
@@ -29,21 +29,21 @@ public class TermDocumentMatrix {
 		System.out.println(" OK");
 		
 		//create matrix
-		System.out.print("[INFO] Creating term-document-matrix...");
+		System.out.print("[INFO] Creating index...");
 		long bmarkStart = System.nanoTime();
 		for (Set<String> termSet : terms){
 			for (String token : termSet){
 				token = token.toLowerCase();
-				if (!matrix.containsKey(token))
-					matrix.put(token, new HashSet<Integer>());
-				matrix.get(token).add(terms.indexOf(termSet));
+				if (!indexMap.containsKey(token))
+					indexMap.put(token, new HashSet<Integer>());
+				indexMap.get(token).add(terms.indexOf(termSet));
 			}
 		}
-		System.out.println(" OK (mapped " + matrix.size() + " terms in " + ((double)(((double)System.nanoTime() - (double)bmarkStart)/1000000)) + " ms)");
+		System.out.println(" OK (mapped " + indexMap.size() + " terms in " + ((double)(((double)System.nanoTime() - (double)bmarkStart)/1000000)) + " ms)");
 	}
 	
-	public Set<Integer> searchMatrix(String query){
-		Set<Integer> result = matrix.get(query.toLowerCase());
+	public Set<Integer> searchIndex(String query){
+		Set<Integer> result = indexMap.get(query.toLowerCase());
 		return (result != null ? result : new HashSet<Integer>());
 	}
 

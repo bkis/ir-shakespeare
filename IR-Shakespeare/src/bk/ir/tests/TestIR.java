@@ -14,7 +14,6 @@ import org.junit.Test;
 import bk.ir.Corpus;
 import bk.ir.search.index.IndexSearch;
 import bk.ir.search.linear.LinearSearch;
-import bk.ir.search.matrix.MatrixSearch;
 
 
 public class TestIR {
@@ -56,20 +55,6 @@ public class TestIR {
 		
 		String query2 = "Brutus Caesar";
 		Set<Integer> result2 = linear.search(query2);
-		assertTrue("Ergebnismenge sollte gewachsen sein.", result2.size() > result.size());	
-	}
-	
-	@Test
-	public void testMatrixSearch(){
-		//Matrix-Suche testen
-		MatrixSearch matrix = new MatrixSearch(corpus);
-		
-		String query = "Brutus";
-		Set<Integer> result = matrix.search(query);
-		assertTrue("Ergebnis sollte nicht leer sein.", result.size() > 0);	
-		
-		String query2 = "Brutus Caesar";
-		Set<Integer> result2 = matrix.search(query2);
 		assertTrue("Ergebnismenge sollte gewachsen sein.", result2.size() > result.size());	
 	}
 	
